@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const deps = require("./package.json").dependencies;
-module.exports = (_, argv) => ({
+module.exports = {
   output: {
     publicPath: "http://localhost:8080/",
   },
@@ -39,11 +39,19 @@ module.exports = (_, argv) => ({
     ],
   },
 
+  target: "es2020",
+  experiments: {
+    outputModule: true,
+  },
+
   plugins: [
     new ModuleFederationPlugin({
       name: "wp_host",
+      library: { type: "module" },
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        remote: "http://localhost:3000/assets/remoteEntry.js",
+      },
       exposes: {},
       shared: {
         ...deps,
@@ -58,7 +66,8 @@ module.exports = (_, argv) => ({
       },
     }),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./index.ejs",
+      inject: false,
     }),
   ],
-});
+};

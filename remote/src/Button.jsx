@@ -9,7 +9,7 @@ export const Button = () => {
         className="shared-btn"
         onClick={() => setState((prev) => prev + 1)}
       >
-        Updated Click me: {state}
+        Click me: {state}
       </button>
     </div>
   );
