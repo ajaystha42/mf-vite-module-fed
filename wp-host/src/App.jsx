@@ -8,15 +8,23 @@ const Footer = FooterModule.default;
 import ButtonModule from "remote/Button";
 const Button = ButtonModule.default;
 
+import useStore from "remote/store";
+
 import "./index.css";
 
-const App = () => (
-  <div className="container">
-    <Header />
-    <Button />
-    <Footer />
-  </div>
-);
+const App = () => {
+  const [count, setCount] = useStore();
+  return (
+    <div className="container">
+      <Header />
+      <Button />
+      <button onClick={() => setCount((count) => count + 1)}>
+        Click {count}
+      </button>
+      <Footer count={count} />
+    </div>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById("app")).render(
   <React.StrictMode>

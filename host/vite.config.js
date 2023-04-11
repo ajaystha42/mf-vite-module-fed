@@ -11,6 +11,9 @@ export default defineConfig({
       remotes: {
         remoteApp: "http://localhost:3000/assets/remoteEntry.js",
       },
+      exposes: {
+        "./Dashboard": "./src/Dashboard",
+      },
       shared: ["react", "react-dom"],
     }),
   ],

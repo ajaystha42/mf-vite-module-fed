@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Footer = () => {
-  return <div className="">Only the best spinners</div>;
+export const Footer = ({ count }) => {
+  return <div className="">Content II from Remote : {count}</div>;
 };
 
 export default Footer;

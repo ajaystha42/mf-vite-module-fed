@@ -15,6 +15,9 @@ export default defineConfig({
         "./Footer": "./src/Footer",
         "./store": "./src/store",
       },
+      remotes: {
+        app: "http://localhost:3001/assets/remoteEntry.js",
+      },
       shared: ["react", "react-dom", "jotai"],
     }),
   ],

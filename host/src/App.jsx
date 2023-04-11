@@ -4,6 +4,7 @@ import Header from "remoteApp/Header";
 import Button from "remoteApp/Button";
 import Footer from "remoteApp/Footer";
 import useStore from "remoteApp/store";
+import Dashboard from "./Dashboard";
 
 function App() {
   const [count, setCount] = useStore();
@@ -18,7 +19,8 @@ function App() {
           count is {count}
         </button>
       </div>
-      <Footer />
+      <Dashboard />
+      <Footer count={count} />
     </div>
   );
 }

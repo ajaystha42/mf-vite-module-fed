@@ -4,6 +4,7 @@ import Button from "./Button";
 import useCount from "./store";
 import Header from "./Header";
 import Footer from "./Footer";
+import Dashboard from "app/Dashboard";
 
 function App() {
   const [count, setCount] = useCount();
@@ -18,7 +19,8 @@ function App() {
           count is {count}
         </button>
       </div>
-      <Footer />
+      <Dashboard />
+      <Footer count={count} />
     </div>
   );
 }
